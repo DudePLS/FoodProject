@@ -1,0 +1,51 @@
+﻿@page
+@using Food_Sem.Models
+@model Food_Sem.Pages.Recipes.IndexModel
+@{
+    ViewData["Title"] = "Index";
+    ViewData["ShowButtons"] = true;
+}
+
+<style>
+    .btn {
+        width: 75px;
+    }
+</style>
+
+<form method="get">
+
+    <div class="input-group">
+            <select asp-for="type" class="custom-select mr-sm-2"
+                    asp-items="Html.GetEnumSelectList<TypeOfDi>()">
+                <option value="">All</option>
+            </select>
+            <input class="form-control" asp-for="SearchTerm" />
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+    </div>
+</form>
+
+@await Component.InvokeAsync("HeadCount")
+
+<h1>Рецепты</h1>
+
+<div class="card-deck">
+    @foreach (var recipe in Model.Recipes)
+    {
+        <partial name="_DisplayRecipePartial" model="recipe" view-data="ViewData" />
+    }
+</div>
+<!-- ##### All Javascript Files ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="js/bootstrap/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<!-- All Plugins js -->
+<script src="js/plugins/plugins.js"></script>
+<!-- Active js -->
+<script src="js/active.js"></script>
+
+

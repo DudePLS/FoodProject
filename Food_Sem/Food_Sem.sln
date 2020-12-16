@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Food_Sem", "Food_Sem\Food_Sem.csproj", "{AED4DC0E-D533-46B7-8897-A35AC9EF4D66}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chat", "Chat\Chat.csproj", "{F59628D1-9E26-48B9-85CF-374724E998BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationAuthorization", "AuthenticationAuthorization\AuthenticationAuthorization.csproj", "{529D788E-8EF8-4B0D-A922-2243624B9AA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AED4DC0E-D533-46B7-8897-A35AC9EF4D66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED4DC0E-D533-46B7-8897-A35AC9EF4D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED4DC0E-D533-46B7-8897-A35AC9EF4D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AED4DC0E-D533-46B7-8897-A35AC9EF4D66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F59628D1-9E26-48B9-85CF-374724E998BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F59628D1-9E26-48B9-85CF-374724E998BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F59628D1-9E26-48B9-85CF-374724E998BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F59628D1-9E26-48B9-85CF-374724E998BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{529D788E-8EF8-4B0D-A922-2243624B9AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{529D788E-8EF8-4B0D-A922-2243624B9AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{529D788E-8EF8-4B0D-A922-2243624B9AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{529D788E-8EF8-4B0D-A922-2243624B9AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {07CA619C-74AA-42CA-A80C-C72D1925A38C}
+	EndGlobalSection
+EndGlobal

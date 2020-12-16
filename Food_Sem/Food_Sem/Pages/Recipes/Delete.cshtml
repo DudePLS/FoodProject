@@ -1,0 +1,16 @@
+﻿@page "{id}"
+@model Food_Sem.Pages.Recipes.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+    ViewData["ShowButtons"] = false;
+}
+<h1>Delete Confirmation</h1>
+
+<div class="alert alert-danger">
+    <partial name="_DisplayRecipePartial"  model="Model.Recipe" view-data="ViewData" />
+    <h5>Are you sure want to delete recipe - @Model.Recipe.Name</h5>
+    <form method="post">
+        <button type="submit" class="btn btn-danger">Yes</button>
+        <a asp-page="/Recipes/Index" class="btn btn-primary">No</a>
+    </form>
+</div>

@@ -1,0 +1,101 @@
+﻿@page "{id:min(1)?}/{handler?}"
+@using Food_Sem.Models
+@model Food_Sem.Pages.Recipes.EditModel
+@{
+    ViewData["Title"] = "Edit";
+    var photoPath = "~/images/" + (Model.Recipe.PhotoPath ?? "noimage.jpg");
+    var pageHeader = Model.Recipe.Id > 0 ? "Edit" : "Create";
+}
+<h1>@pageHeader</h1>
+
+<form method="post" class="mt-3" enctype="multipart/form-data"
+      asp-page-handler="OnPost">
+    <input hidden asp-for="Recipe.Id" />
+    <input hidden asp-for="Recipe.PhotoPath" />
+
+    <div asp-validation-summary="All" class="text-danger">
+    </div>
+
+    @*asp-for tag helper takes care of displaying the existing
+        data in the respective input elements*@
+    <div class="form-group row">
+        <label asp-for="Recipe.Name" class="col-sm-2 col-form-label">
+        </label>
+        <div class="col-sm-10">
+            <input asp-for="Recipe.Name" class="form-control" placeholder="Название">
+            <span asp-validation-for="Recipe.Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Recipe.CookingTime" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Recipe.CookingTime" class="form-control" placeholder="Время приготовления в минутах">
+            <span asp-validation-for="Recipe.CookingTime" class="text-danger"></span>
+
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="Recipe.TypeOfDish" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <select asp-for="Recipe.TypeOfDish" class="custom-select mr-sm-2"
+                    asp-items="Html.GetEnumSelectList<TypeOfDi>()">
+                <option value="">Please Select</option>
+            </select>
+            <span asp-validation-for="Recipe.TypeOfDish" class="text-danger"></span>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Recipe.RecipeText">Example textarea</label>
+        <textarea asp-for="Recipe.RecipeText" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <span asp-validation-for="Recipe.RecipeText" class="text-danger"></span>
+    </div>
+    @*<div class="form-group row">
+        <label asp-for="Recipe.RecipeText" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Recipe.RecipeText" class="form-control" placeholder="Рецепт приготовления">
+            <span asp-validation-for="Recipe.RecipeText" class="text-danger"></span>
+        </div>
+    </div>*@
+
+    <div class="form-group row">
+        <label asp-for="Photo" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <div class="custom-file">
+                @*Photo property type is IFormFile, so ASP.NET Core
+                    automatically creates a FileUpload control  *@
+                <input asp-for="Photo" class="custom-file-input form-control">
+                <label class="custom-file-label">Click here to change photo</label>
+            </div>
+        </div>
+    </div>
+
+    @*Display the existing employee photo*@
+
+    <div class="form-group row col-sm-4 offset-4">
+        <img class="imageThumbnail" src="@photoPath" asp-append-version="true" />
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a asp-page="/Recipes/Index" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+
+    @*This jquery code is required to display the selected
+        file name in the file upload controls*@
+    @section Scripts {
+        <script>
+            $(document).ready(function () {
+                $('.custom-file-input').on("change", function () {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).next('.custom-file-label').html(fileName);
+                });
+            });
+        </script>
+        <partial name="_ValidationScriptsPartial" />
+
+    }
+</form>
